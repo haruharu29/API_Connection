@@ -63,9 +63,16 @@ fun HomeScreen2(
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
+    // Define the status parameter
+    val status = true // Change this to your desired status
+
+    // Call the appropriate function based on the UI state and status
     when (studentUiState) {
-        is StudentUiState.Loading -> LoadingScreen(modifier.fillMaxSize())
-        is StudentUiState.Success -> StudentsGridScreen(studentUiState.students, contentPadding = contentPadding, modifier = modifier.fillMaxSize())
+        is StudentUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
+        is StudentUiState.Success -> {
+            val students = studentUiState.students.filter { it.status == status }
+            StudentsGridScreen(students, contentPadding = contentPadding, modifier = modifier.fillMaxSize())
+        }
         is StudentUiState.Error -> ErrorScreen(retryAction, modifier.fillMaxSize())
     }
 }

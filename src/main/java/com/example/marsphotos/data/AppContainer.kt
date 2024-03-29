@@ -35,7 +35,6 @@ interface AppContainer {
  * Variables are initialized lazily and the same instance is shared across the whole app.
  */
 class DefaultAppContainer : AppContainer {
-    //    private val baseUrl = "https://android-kotlin-fun-mars-server.appspot.com/"
     private val baseUrl = "http://127.0.0.1:8000/"
 
     /**

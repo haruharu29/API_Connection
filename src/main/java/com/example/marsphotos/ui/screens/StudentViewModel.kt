@@ -35,14 +35,14 @@ class StudentViewModel(private val studentsRepository: StudentsRepository) : Vie
      * Call getMarsPhotos() on init so we can display status immediately.
      */
     init {
-        getStudents()
+        getStudents(true)
     }
 
     /**
      * Gets Mars photos information from the Mars API Retrofit service and updates the
      * [MarsPhoto] [List] [MutableList].
      */
-    fun getStudents() {
+    fun getStudents(status: Boolean) {
         viewModelScope.launch {
             studentUiState = StudentUiState.Loading
             studentUiState = try {

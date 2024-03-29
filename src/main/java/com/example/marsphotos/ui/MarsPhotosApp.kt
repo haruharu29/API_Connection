@@ -50,9 +50,11 @@ fun MarsPhotosApp() {
         ) {
             val studentViewModel: StudentViewModel =
                 viewModel(factory = StudentViewModel.Factory)
+            studentViewModel.getStudents(status = true)
+
             HomeScreen2(
                 studentUiState = studentViewModel.studentUiState,
-                retryAction = studentViewModel::getStudents,
+                retryAction = { studentViewModel.getStudents(status = true) }, // Pass status parameter on retry
                 contentPadding = it
             )
         }

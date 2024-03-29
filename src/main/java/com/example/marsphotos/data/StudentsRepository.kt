@@ -8,6 +8,7 @@ import com.example.marsphotos.network.MarsApiService
  */
 interface StudentsRepository {
     /** Fetches list of MarsPhoto from marsApi */
+    //suspend fun getStudents(): List<Student>
     suspend fun getStudents(): List<Student>
 }
 
@@ -17,5 +18,6 @@ interface StudentsRepository {
 class NetworkStudentsRepository(
     private val marsApiService: MarsApiService
 ) : StudentsRepository {
-    override suspend fun getStudents(): List<Student> = marsApiService.getStudents()
+//    override suspend fun getStudents(): List<Student> = marsApiService.getStudents(true)
+override suspend fun getStudents(): List<Student> = marsApiService.getStudents(true)
 }

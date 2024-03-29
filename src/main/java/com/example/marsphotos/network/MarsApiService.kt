@@ -19,6 +19,7 @@ package com.example.marsphotos.network
 import com.example.marsphotos.model.MarsPhoto
 import com.example.marsphotos.model.Student
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * A public interface that exposes the [getPhotos] method
@@ -33,5 +34,5 @@ interface MarsApiService {
     suspend fun getPhotos(): List<MarsPhoto>
 
     @GET("students")
-    suspend fun getStudents(): List<Student>
+    suspend fun getStudents(@Query("status") status: Boolean): List<Student>
 }

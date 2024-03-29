@@ -31,17 +31,3 @@ data class MarsPhoto(
     /*@SerialName(value = "img_src")
     val imgSrc: String*/
 )
-
-data class Students(
-    //@SerialName(value = "id")
-    val id: String,
-
-    //@SerialName(value = "fname")
-    val fname: String,
-
-    //@SerialName(value = "lname")
-    val lname: String,
-
-   //@SerialName(value = "country")
-    val country: String
-)
